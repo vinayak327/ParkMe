@@ -61,5 +61,21 @@ public class Payment extends AppCompatActivity {
             Toast.makeText(this, "Error launching PhonePe", Toast.LENGTH_SHORT).show();
         }
     }
+    public void launchPaytm(View view) {
+        try {
+            Intent intent = getPackageManager().getLaunchIntentForPackage("net.one97.paytm");
+            if (intent != null) {
+                intent.setAction(Intent.ACTION_VIEW);
+                intent.setData(Uri.parse("paytm://"));
+                startActivity(intent);
+            } else {
+                Toast.makeText(this, "Paytm app not installed", Toast.LENGTH_SHORT).show();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            Toast.makeText(this, "Error launching Paytm", Toast.LENGTH_SHORT).show();
+        }
+    }
+
 
 }
