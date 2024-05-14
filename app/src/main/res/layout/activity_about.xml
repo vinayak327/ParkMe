@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AboutActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/black"
+        android:elevation="4dp"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        app:title="PARKME"
+        app:titleTextColor="#FFFFFF"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/aboutDescription"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Efficient and smart way to automate the management of the parking system that allocates parking space using Internet of Things (IoT) technology. The IoT provides wireless access to the system, allowing users to track the availability of parking areas. With the increase in the population of vehicles in metropolitan cities, road congestion is a major problem. The aim of this system is to resolve this issue by minimizing the time and effort users spend searching for parking spaces. Users can book parking slots using the app, and alert messages are sent via notifications. This minimizes waiting time for users searching for parking spaces."
+        android:textColor="#000000"
+        android:layout_marginTop="8dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolbar" />
+
+    <TextView
+        android:id="@+id/madeByHeading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Made by"
+        android:textColor="#000000"
+        app:layout_constraintTop_toBottomOf="@id/aboutDescription"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="16dp" />
+
+    <TextView
+        android:id="@+id/authorNames"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Eshwari Kulkarni\nVinayak Choudhary"
+        android:textColor="#000000"
+        app:layout_constraintTop_toBottomOf="@id/madeByHeading"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="8dp" />
+
+    <!-- Add bottom constraint to constrain the bottom of the layout -->
+    <!-- Adjust marginTop value to add spacing between the views and the bottom -->
+    <View
+        android:id="@+id/bottomSpace"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="0dp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
