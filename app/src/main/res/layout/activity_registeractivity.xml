@@ -11,7 +11,7 @@
         android:layout_height="wrap_content"
         android:padding="15dp"
         android:layout_margin="15dp"
-        android:background="@color/white">
+        android:background="@drawable/back">
 
 
         <TextView
@@ -19,6 +19,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
+            android:textColor="@color/black"
             android:text="REGISTER HERE"
             android:textAlignment="center"
             android:textAppearance="@style/TextAppearance.AppCompat.Headline"/>
@@ -30,7 +31,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/textView_register_head"
             android:text="Full Name"
-            android:textColor="#555555"
+            android:textColor="#000000"
             android:padding="6dp"
             android:textSize="16sp"
             android:layout_marginTop="40dp"/>
@@ -53,7 +54,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/editText_register_full_name"
             android:text="Email"
-            android:textColor="#555555"
+            android:textColor="#000000"
             android:padding="6dp"
             android:textSize="16sp"
             android:layout_marginTop="10dp"/>
@@ -75,8 +76,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/editText_register_email"
-            android:text="DOB"
-            android:textColor="#555555"
+            android:text="Date of Birth"
+            android:textColor="#000000"
             android:padding="6dp"
             android:textSize="16sp"
             android:layout_marginTop="10dp"/>
@@ -100,7 +101,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/editText_register_dob"
             android:text="Gender"
-            android:textColor="#555555"
+            android:textColor="#000000"
             android:padding="6dp"
             android:textSize="16dp"
             android:layout_marginTop="10dp"/>
@@ -119,14 +120,21 @@
                 android:layout_height="wrap_content"
                 android:text="Male"
                 android:textSize="16sp"
-                android:textColor="#555555"/>
+                android:textColor="#000000"/>
             <RadioButton
                 android:id="@+id/radio_female"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Female"
                 android:textSize="16sp"
-                android:textColor="#555555"/>
+                android:textColor="#000000"/>
+            <RadioButton
+                android:id="@+id/radio_others"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Others"
+                android:textSize="16sp"
+                android:textColor="#000000"/>
 
         </RadioGroup>
 
@@ -136,7 +144,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/radio_group_register_gender"
             android:text="Mobile Number"
-            android:textColor="#555555"
+            android:textColor="#000000"
             android:padding="6dp"
             android:textSize="16sp"
             android:layout_marginTop="10dp"/>
@@ -159,7 +167,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/editText_register_mobile"
             android:text="Password"
-            android:textColor="#555555"
+            android:textColor="#000000"
             android:padding="6dp"
             android:textSize="16sp"
             android:layout_marginTop="10dp"/>
@@ -183,7 +191,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/editText_register_password"
             android:text="Confirm Password"
-            android:textColor="#555555"
+            android:textColor="#000000"
             android:padding="6dp"
             android:textSize="16sp"
             android:layout_marginTop="10dp"/>
