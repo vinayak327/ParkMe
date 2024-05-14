@@ -21,6 +21,11 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
+import com.example.parkme.BookingSaveActivities.ParkingAvailabilityActivity;
+import com.example.parkme.LoginRegisterActivities.LoginActivity;
+import com.example.parkme.OtherActivities.AboutActivity;
+import com.example.parkme.OtherActivities.ProfileActivity;
+import com.example.parkme.OtherActivities.RateActivity;
 import com.google.android.gms.common.api.Status;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;

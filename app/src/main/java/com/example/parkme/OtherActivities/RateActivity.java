@@ -1,10 +1,12 @@
-package com.example.parkme;
+package com.example.parkme.OtherActivities;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.RatingBar;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.parkme.R;
 
 public class RateActivity extends AppCompatActivity {
 

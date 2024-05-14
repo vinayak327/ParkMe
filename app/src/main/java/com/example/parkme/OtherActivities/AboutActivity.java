@@ -1,6 +1,8 @@
-package com.example.parkme;
+package com.example.parkme.OtherActivities;
 import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.parkme.R;
 
 public class AboutActivity extends AppCompatActivity {
 

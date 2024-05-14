@@ -1,4 +1,4 @@
-package com.example.parkme;
+package com.example.parkme.Others;
 
 import android.content.Context;
 import android.widget.ArrayAdapter;

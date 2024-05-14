@@ -6,6 +6,9 @@ import android.view.View;
 import android.widget.Button;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.parkme.LoginRegisterActivities.LoginActivity;
+import com.example.parkme.LoginRegisterActivities.RegisterActivity;
+
 public class MainActivity extends AppCompatActivity {
 
     @Override

@@ -1,4 +1,4 @@
-package com.example.parkme;
+package com.example.parkme.Others;
 
 public class Booking {
     private String name;

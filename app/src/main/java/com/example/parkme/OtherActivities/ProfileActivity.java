@@ -1,4 +1,4 @@
-package com.example.parkme;
+package com.example.parkme.OtherActivities;
 
 import android.os.Bundle;
 import android.widget.TextView;
@@ -7,6 +7,8 @@ import android.widget.Toast;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.parkme.R;
+import com.example.parkme.Others.ReadWriteUserDetails;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;

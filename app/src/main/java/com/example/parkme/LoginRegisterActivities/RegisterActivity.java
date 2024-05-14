@@ -1,4 +1,4 @@
-package com.example.parkme;
+package com.example.parkme.LoginRegisterActivities;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,6 +10,9 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.parkme.MainActivity;
+import com.example.parkme.R;
+import com.example.parkme.Others.User;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;

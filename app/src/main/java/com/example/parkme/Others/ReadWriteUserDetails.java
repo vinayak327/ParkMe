@@ -1,21 +1,19 @@
-package com.example.parkme;
+package com.example.parkme.Others;
 
-public class User {
-    private String fullName;
-    private String dob;
-    private String mobile;
+public class ReadWriteUserDetails {
+    public String fullName, dob, gender, mobile;
 
-    // Required empty constructor
-    public User() {
+    public ReadWriteUserDetails() {
+        // Default constructor required for calls to DataSnapshot.getValue(ReadWriteUserDetails.class)
     }
 
-    public User(String fullName, String dob, String mobile) {
+    public ReadWriteUserDetails(String fullName, String dob, String gender, String mobile) {
         this.fullName = fullName;
         this.dob = dob;
+        this.gender = gender;
         this.mobile = mobile;
     }
 
-    // Getters and setters
     public String getFullName() {
         return fullName;
     }
@@ -32,6 +30,14 @@ public class User {
         this.dob = dob;
     }
 
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
+
     public String getMobile() {
         return mobile;
     }
@@ -40,4 +46,3 @@ public class User {
         this.mobile = mobile;
     }
 }
-

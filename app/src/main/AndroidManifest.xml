@@ -24,39 +24,39 @@
         android:theme="@style/Theme.ParkMe"
         tools:targetApi="31">
         <activity
-            android:name=".Payment"
+            android:name=".Others.Payment"
             android:exported="false" />
         <activity
-            android:name=".SaveActivity"
+            android:name=".BookingSaveActivities.SaveActivity"
             android:exported="false" />
         <activity
-            android:name=".AboutActivity"
+            android:name=".OtherActivities.AboutActivity"
             android:exported="false" />
         <activity
-            android:name=".BookingActivity"
+            android:name=".BookingSaveActivities.BookingActivity"
             android:exported="false" />
         <activity
-            android:name=".RateActivity"
+            android:name=".OtherActivities.RateActivity"
             android:exported="false" />
 
         <activity
-            android:name=".ProfileActivity"
+            android:name=".OtherActivities.ProfileActivity"
             android:exported="false" />
         <activity
-            android:name=".ParkingAvailabilityActivity"
+            android:name=".BookingSaveActivities.ParkingAvailabilityActivity"
             android:exported="false" />
         <activity
-            android:name=".ChangePasswordActivity"
+            android:name=".LoginRegisterActivities.ChangePasswordActivity"
             android:exported="false" />
         <activity
-            android:name=".PlaceAutoSuggestAdapter"
+            android:name=".Others.PlaceAutoSuggestAdapter"
             android:exported="false"
             tools:ignore="Instantiatable" />
         <activity
-            android:name=".forgotpassword"
+            android:name=".LoginRegisterActivities.forgotpassword"
             android:exported="false" />
         <activity
-            android:name=".SplashActivity"
+            android:name=".OtherActivities.SplashActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -70,10 +70,10 @@
             android:value="@string/my_map_api_key" />
 
         <activity
-            android:name=".RegisterActivity"
+            android:name=".LoginRegisterActivities.RegisterActivity"
             android:exported="false" />
         <activity
-            android:name=".LoginActivity"
+            android:name=".LoginRegisterActivities.LoginActivity"
             android:exported="false" />
         <activity
             android:name=".MainActivity2"
