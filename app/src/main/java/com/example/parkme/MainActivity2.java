@@ -7,10 +7,8 @@ import android.location.Address;
 import android.location.Geocoder;
 import android.location.Location;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -24,7 +22,6 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import com.example.parkme.BookingSaveActivities.ParkingAvailabilityActivity;
 import com.example.parkme.LoginRegisterActivities.LoginActivity;
 import com.example.parkme.OtherActivities.AboutActivity;
-import com.example.parkme.OtherActivities.ProfileActivity;
 import com.example.parkme.OtherActivities.RateActivity;
 import com.google.android.gms.common.api.Status;
 import com.google.android.gms.location.FusedLocationProviderClient;
@@ -36,19 +33,13 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
-import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.android.gms.tasks.Task;
 import com.google.android.libraries.places.api.Places;
 import com.google.android.libraries.places.api.model.Place;
 import com.google.android.libraries.places.widget.AutocompleteSupportFragment;
 import com.google.android.libraries.places.widget.listener.PlaceSelectionListener;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -77,16 +68,14 @@ public class MainActivity2 extends AppCompatActivity implements OnMapReadyCallba
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 int id = item.getItemId();
-                if (id == R.id.nav_profile) {
-                    startActivity(new Intent(MainActivity2.this, ProfileActivity.class));
+                if (id == R.id.nav_rating) {
+                    startActivity(new Intent(MainActivity2.this, RateActivity.class));
                     return true;
 
                 } else if (id == R.id.nav_about) {
                     startActivity(new Intent(MainActivity2.this, AboutActivity.class));
                     return true;
-                } else if (id == R.id.nav_rating) {
-                    startActivity(new Intent(MainActivity2.this, RateActivity.class));
-                    return true;
+
                 } else if (id == R.id.nav_logout) {
                     logoutUser();
                     return true;
@@ -118,7 +107,7 @@ public class MainActivity2 extends AppCompatActivity implements OnMapReadyCallba
         setUpPlaceAutocomplete();
 
 
-        updateNavigationHeader();
+
     }
 
     private void logoutUser() {
@@ -129,56 +118,7 @@ public class MainActivity2 extends AppCompatActivity implements OnMapReadyCallba
         finish(); // Close the current activity
     }
 
-    private void updateNavigationHeader() {
-        NavigationView navigationView = findViewById(R.id.nav_view);
-        View headerView = navigationView.getHeaderView(0); // Inflate the header layout
 
-        TextView textViewUsername = headerView.findViewById(R.id.textViewUsername);
-        TextView textViewEmail = headerView.findViewById(R.id.textViewEmail);
-
-        // Get current user information
-        FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
-
-        // Set user information if user is not null
-        if (currentUser != null) {
-            DatabaseReference userRef = FirebaseDatabase.getInstance().getReference("Registered users").child(currentUser.getUid());
-            userRef.get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
-                @Override
-                public void onComplete(@NonNull Task<DataSnapshot> task) {
-                    if (task.isSuccessful()) {
-                        DataSnapshot dataSnapshot = task.getResult();
-                        if (dataSnapshot.exists()) {
-                            String fullName = dataSnapshot.child("fullName").getValue(String.class);
-                            String email = currentUser.getEmail();
-
-                            Log.d("MainActivity2", "Full Name: " + fullName);
-                            Log.d("MainActivity2", "Email: " + email);
-
-                            // Set username
-                            if (fullName != null && !fullName.isEmpty()) {
-                                textViewUsername.setText(getString(R.string.username_text) + " " + fullName);
-                            } else {
-                                textViewUsername.setText(getString(R.string.username_text) + " Unknown");
-                            }
-
-                            // Set email
-                            if (email != null && !email.isEmpty()) {
-                                textViewEmail.setText(getString(R.string.email_text) + " " + email);
-                            } else {
-                                textViewEmail.setText(getString(R.string.email_text) + " Unknown");
-                            }
-                        } else {
-                            Log.d("MainActivity2", "DataSnapshot does not exist");
-                        }
-                    } else {
-                        Log.e("MainActivity2", "Error getting user data", task.getException());
-                    }
-                }
-            });
-
-        }
-
-    }
 
 
 

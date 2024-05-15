@@ -61,7 +61,7 @@ public class razorpay extends AppCompatActivity implements PaymentResultListener
             options.put("currency", "INR");
             options.put("amount", finalAmount+"");
             options.put("prefill.email", "choudharyvinayak325@gmail.com");
-            options.put("prefill.contact", "9309749862");
+            ;
 
             checkout.open(activity, options);
 

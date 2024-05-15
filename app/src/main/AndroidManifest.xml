@@ -25,24 +25,18 @@
         <activity
             android:name=".razorpay"
             android:exported="false" />
-        <activity
-            android:name=".Others.Payment"
-            android:exported="false" />
+
         <activity
             android:name=".BookingSaveActivities.SaveActivity"
             android:exported="false" />
         <activity
             android:name=".OtherActivities.AboutActivity"
             android:exported="false" />
-        <activity
-            android:name=".BookingSaveActivities.BookingActivity"
-            android:exported="false" />
+
         <activity
             android:name=".OtherActivities.RateActivity"
             android:exported="false" />
-        <activity
-            android:name=".OtherActivities.ProfileActivity"
-            android:exported="false" />
+
         <activity
             android:name=".BookingSaveActivities.ParkingAvailabilityActivity"
             android:exported="false" />

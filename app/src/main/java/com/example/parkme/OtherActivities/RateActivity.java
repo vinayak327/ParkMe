@@ -1,4 +1,6 @@
 package com.example.parkme.OtherActivities;
+
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.RatingBar;
@@ -6,6 +8,7 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.parkme.MainActivity2;
 import com.example.parkme.R;
 
 public class RateActivity extends AppCompatActivity {
@@ -25,7 +28,9 @@ public class RateActivity extends AppCompatActivity {
             float rating = ratingBar.getRating();
             // You can handle the rating here, for example, send it to a database
             // For simplicity, let's just display a toast message with the rating
-            Toast.makeText(RateActivity.this, "Rating: " + rating, Toast.LENGTH_SHORT).show();
+            Toast.makeText(RateActivity.this, "Thanks For Rating: " + rating, Toast.LENGTH_SHORT).show();
+            startActivity(new Intent(RateActivity.this, MainActivity2.class));
+            finish();
         });
     }
 }
