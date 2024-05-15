@@ -18,14 +18,76 @@
         app:titleTextColor="#FFFFFF"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <!-- Slot 1 -->
+
+    <!-- Slot 2 -->
+
+    <!-- Slot 3 -->
+
+    <!-- Slot 4 -->
+
+    <!-- Slot 5 -->
+
     <Button
-        android:id="@+id/button_book_slot"
+        android:id="@+id/button_book_slot_1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Book a Slot"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="48dp"
+        android:text="Book Slot 1"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@id/toolbar" />
+
+    <!-- Slot 6 -->
+
+    <Button
+        android:id="@+id/button_book_slot_2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="232dp"
+        android:layout_marginTop="32dp"
+        android:text="Book Slot 2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/button_book_slot_1" />
+
+    <Button
+        android:id="@+id/button_book_slot_3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="12dp"
+        android:text="Book Slot 3"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/button_book_slot_2" />
+
+    <Button
+        android:id="@+id/button_book_slot_4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="224dp"
+        android:layout_marginTop="32dp"
+        android:text="Book Slot 4"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/button_book_slot_3" />
+
+    <Button
+        android:id="@+id/button_book_slot_5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="16dp"
+        android:text="Book Slot 5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/button_book_slot_4" />
+
+    <Button
+        android:id="@+id/button_book_slot_6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="224dp"
+        android:layout_marginTop="48dp"
+        android:text="Book Slot 6"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/button_book_slot_5" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

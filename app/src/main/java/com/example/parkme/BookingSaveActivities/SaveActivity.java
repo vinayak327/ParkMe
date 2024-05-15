@@ -1,10 +1,14 @@
 package com.example.parkme.BookingSaveActivities;
 
+import android.app.DatePickerDialog;
+import android.app.TimePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.TimePicker;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -17,7 +21,10 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.HashMap;
+import java.util.Locale;
 import java.util.Map;
 
 public class SaveActivity extends AppCompatActivity {
@@ -27,11 +34,14 @@ public class SaveActivity extends AppCompatActivity {
     private EditText plate;
     private EditText durationfrom;
     private EditText durationto;
-
     private EditText slotno;
 
     private Button save;
     private Button payment;
+
+    private Calendar calendar;
+    private SimpleDateFormat dateFormat;
+    private SimpleDateFormat timeFormat;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,49 +58,61 @@ public class SaveActivity extends AppCompatActivity {
         save = findViewById(R.id.buttonSave);
         payment = findViewById(R.id.buttonMakePayment);
 
-        payment.setEnabled(false); // Initially disable the Make Payment button
+        calendar = Calendar.getInstance();
+        dateFormat = new SimpleDateFormat("dd/MM/yyyy", Locale.getDefault());
+        timeFormat = new SimpleDateFormat("hh:mm a", Locale.getDefault());
+
+        durationfrom.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showDateTimePicker(durationfrom);
+            }
+        });
+
+        durationto.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showDateTimePicker(durationto);
+            }
+        });
+
+        payment.setEnabled(false);
 
         save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // Get values from EditText fields
                 String nameValue = name.getText().toString();
                 String emailValue = email.getText().toString();
                 String phoneValue = phone.getText().toString();
-                String plateValue = plate.getText().toString();
+                String plateValue = plate.getText().toString().toUpperCase(); // Convert to upper case for consistency
                 String durationFromValue = durationfrom.getText().toString();
                 String durationToValue = durationto.getText().toString();
                 String slotNoValue = slotno.getText().toString();
 
-                // Email format validation
                 if (!android.util.Patterns.EMAIL_ADDRESS.matcher(emailValue).matches() || !emailValue.endsWith("@gmail.com")) {
                     email.setError("Enter a valid Gmail address");
                     email.requestFocus();
                     return;
                 }
 
-                // Phone number length validation
                 if (phoneValue.length() != 10) {
                     phone.setError("Phone number should be 10 digits long");
                     phone.requestFocus();
                     return;
                 }
 
-                // Car plate number format validation
-                if (!plateValue.matches("[a-zA-Z]{2}\\d{2}\\d{4}") || plateValue.length() != 8) {
+                if (!plateValue.matches("[a-zA-Z]{2}\\d{2}[a-zA-Z]{2}\\d{4}") || plateValue.length() != 10) {
                     plate.setError("Enter a valid car plate number");
                     plate.requestFocus();
                     return;
                 }
 
-                // Slot number format validation
                 if (!slotNoValue.matches("\\d{1,2}")) {
                     slotno.setError("Enter a valid slot number");
                     slotno.requestFocus();
                     return;
                 }
 
-                // All validations passed, proceed with saving data
                 Map<String, String> v = new HashMap<>();
                 v.put("name", nameValue);
                 v.put("email", emailValue);
@@ -104,7 +126,7 @@ public class SaveActivity extends AppCompatActivity {
                     public void onComplete(@NonNull Task<DocumentReference> task) {
                         if (task.isSuccessful()) {
                             Toast.makeText(getApplicationContext(), "Details saved. Now make payment", Toast.LENGTH_SHORT).show();
-                            payment.setEnabled(true); // Enable the Make Payment button
+                            payment.setEnabled(true);
                         } else {
                             Toast.makeText(getApplicationContext(), "Failed to save details. Please try again.", Toast.LENGTH_SHORT).show();
                         }
@@ -116,7 +138,6 @@ public class SaveActivity extends AppCompatActivity {
         payment.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 if (!name.getText().toString().isEmpty() &&
                         !email.getText().toString().isEmpty() &&
                         !phone.getText().toString().isEmpty() &&
@@ -131,5 +152,27 @@ public class SaveActivity extends AppCompatActivity {
                 }
             }
         });
+    }
+
+    private void showDateTimePicker(final EditText editText) {
+        final Calendar currentDate = Calendar.getInstance();
+        DatePickerDialog datePickerDialog = new DatePickerDialog(SaveActivity.this, new DatePickerDialog.OnDateSetListener() {
+            @Override
+            public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
+                calendar.set(year, monthOfYear, dayOfMonth);
+                TimePickerDialog timePickerDialog = new TimePickerDialog(SaveActivity.this, new TimePickerDialog.OnTimeSetListener() {
+                    @Override
+                    public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
+                        calendar.set(Calendar.HOUR_OF_DAY, hourOfDay);
+                        calendar.set(Calendar.MINUTE, minute);
+                        if (editText != null)
+                            editText.setText(dateFormat.format(calendar.getTime()) + " " + timeFormat.format(calendar.getTime()));
+                    }
+                }, currentDate.get(Calendar.HOUR_OF_DAY), currentDate.get(Calendar.MINUTE), false);
+                timePickerDialog.show();
+            }
+        }, currentDate.get(Calendar.YEAR), currentDate.get(Calendar.MONTH), currentDate.get(Calendar.DATE));
+        datePickerDialog.getDatePicker().setMinDate(System.currentTimeMillis() - 1000);
+        datePickerDialog.show();
     }
 }
