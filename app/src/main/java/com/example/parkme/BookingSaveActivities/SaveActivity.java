@@ -107,11 +107,12 @@ public class SaveActivity extends AppCompatActivity {
                     return;
                 }
 
-                if (!slotNoValue.matches("\\d{1,2}")) {
-                    slotno.setError("Enter a valid slot number");
+                if (!slotNoValue.matches("[1-6]")) {
+                    slotno.setError("Enter a valid slot number (1-6)");
                     slotno.requestFocus();
                     return;
                 }
+
 
                 Map<String, String> v = new HashMap<>();
                 v.put("name", nameValue);
