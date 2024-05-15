@@ -10,8 +10,8 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.parkme.Others.Payment;
 import com.example.parkme.R;
+import com.example.parkme.razorpay;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.DocumentReference;
@@ -116,7 +116,7 @@ public class SaveActivity extends AppCompatActivity {
         payment.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Check if all details are filled and saved
+
                 if (!name.getText().toString().isEmpty() &&
                         !email.getText().toString().isEmpty() &&
                         !phone.getText().toString().isEmpty() &&
@@ -124,7 +124,7 @@ public class SaveActivity extends AppCompatActivity {
                         !durationfrom.getText().toString().isEmpty() &&
                         !durationto.getText().toString().isEmpty() &&
                         !slotno.getText().toString().isEmpty()) {
-                    Intent intent = new Intent(SaveActivity.this, Payment.class);
+                    Intent intent = new Intent(SaveActivity.this, razorpay.class);
                     startActivity(intent);
                 } else {
                     Toast.makeText(getApplicationContext(), "Fill all details first and click on Save", Toast.LENGTH_SHORT).show();

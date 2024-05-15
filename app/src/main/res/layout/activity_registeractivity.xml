@@ -22,7 +22,7 @@
             android:textColor="@color/black"
             android:text="REGISTER HERE"
             android:textAlignment="center"
-            android:textAppearance="@style/TextAppearance.AppCompat.Headline"/>
+            />
 
 
         <TextView
