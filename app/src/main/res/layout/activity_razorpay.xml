@@ -20,19 +20,30 @@
         app:titleTextColor="#FFFFFF"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <TextView
+        android:id="@+id/user_details"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:padding="16dp"
+        android:textSize="20sp"
+        app:layout_constraintTop_toBottomOf="@id/toolbar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/pay_btn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="40dp"
-        android:layout_marginTop="356dp"
+        android:layout_marginTop="388dp"
         android:background="#555"
-        android:text="Pay With Razorpay"
+        android:text="PAYMENT"
         android:textColor="#fff"
         android:textSize="18dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.687"
+        app:layout_constraintHorizontal_bias="0.637"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -42,11 +53,12 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:gravity="center"
+        android:text="Pay To Book Your Parking Space"
 
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/pay_btn"
-        app:layout_constraintVertical_bias="0.015" />
+        app:layout_constraintVertical_bias="0.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

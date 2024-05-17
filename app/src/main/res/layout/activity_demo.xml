@@ -73,6 +73,15 @@
                 app:layout_constraintTop_toBottomOf="@id/book_space_1_button"
                 android:layout_marginTop="1dp"/>
 
+            <Button
+                android:id="@+id/cancel_space_1_button"
+                android:layout_width="140dp"
+                android:layout_height="40dp"
+                android:text="Cancel"
+                app:layout_constraintStart_toStartOf="@id/make_payment_1_button"
+                app:layout_constraintTop_toBottomOf="@id/make_payment_1_button"
+                android:layout_marginTop="1dp"/>
+
             <!-- Parking space 2 -->
 
             <!-- Parking space 2 text -->
@@ -125,6 +134,15 @@
                 android:text="Payment"
                 app:layout_constraintStart_toStartOf="@id/book_space_2_button"
                 app:layout_constraintTop_toBottomOf="@id/book_space_2_button"
+                android:layout_marginTop="1dp"/>
+
+            <Button
+                android:id="@+id/cancel_space_2_button"
+                android:layout_width="140dp"
+                android:layout_height="40dp"
+                android:text="Cancel"
+                app:layout_constraintStart_toStartOf="@id/make_payment_2_button"
+                app:layout_constraintTop_toBottomOf="@id/make_payment_2_button"
                 android:layout_marginTop="1dp"/>
 
             <!-- Parking space 3 -->
@@ -182,6 +200,15 @@
                 app:layout_constraintTop_toBottomOf="@id/book_space_3_button"
                 android:layout_marginTop="1dp"/>
 
+            <Button
+                android:id="@+id/cancel_space_3_button"
+                android:layout_width="140dp"
+                android:layout_height="40dp"
+                android:text="Cancel"
+                app:layout_constraintStart_toStartOf="@id/make_payment_3_button"
+                app:layout_constraintTop_toBottomOf="@id/make_payment_3_button"
+                android:layout_marginTop="1dp"/>
+
             <!-- Parking space 4 -->
 
             <!-- Parking space 4 text -->
@@ -233,6 +260,15 @@
                 android:text="Payment"
                 app:layout_constraintStart_toStartOf="@id/book_space_4_button"
                 app:layout_constraintTop_toBottomOf="@id/book_space_4_button"
+                android:layout_marginTop="1dp"/>
+
+            <Button
+                android:id="@+id/cancel_space_4_button"
+                android:layout_width="140dp"
+                android:layout_height="40dp"
+                android:text="Cancel"
+                app:layout_constraintStart_toStartOf="@id/make_payment_4_button"
+                app:layout_constraintTop_toBottomOf="@id/make_payment_4_button"
                 android:layout_marginTop="1dp"/>
 
             <!-- Parking space 5 -->
@@ -290,6 +326,15 @@
                 app:layout_constraintTop_toBottomOf="@id/book_space_5_button"
                 android:layout_marginTop="1dp"/>
 
+            <Button
+                android:id="@+id/cancel_space_5_button"
+                android:layout_width="140dp"
+                android:layout_height="40dp"
+                android:text="Cancel"
+                app:layout_constraintStart_toStartOf="@id/make_payment_5_button"
+                app:layout_constraintTop_toBottomOf="@id/make_payment_5_button"
+                android:layout_marginTop="1dp"/>
+
             <!-- Parking space 6 -->
 
             <!-- Parking space 6 text -->
@@ -342,6 +387,15 @@
                 android:text="Payment"
                 app:layout_constraintStart_toStartOf="@id/book_space_6_button"
                 app:layout_constraintTop_toBottomOf="@id/book_space_6_button"
+                android:layout_marginTop="1dp"/>
+
+            <Button
+                android:id="@+id/cancel_space_6_button"
+                android:layout_width="140dp"
+                android:layout_height="40dp"
+                android:text="Cancel"
+                app:layout_constraintStart_toStartOf="@id/make_payment_6_button"
+                app:layout_constraintTop_toBottomOf="@id/make_payment_6_button"
                 android:layout_marginTop="1dp"/>
 
             <TextView

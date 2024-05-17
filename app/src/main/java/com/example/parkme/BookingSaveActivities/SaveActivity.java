@@ -39,6 +39,8 @@ public class SaveActivity extends AppCompatActivity {
     private Calendar calendar;
     private SimpleDateFormat dateFormat;
     private SimpleDateFormat timeFormat;
+    private FirebaseFirestore db;
+    private String documentId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,6 +60,8 @@ public class SaveActivity extends AppCompatActivity {
         dateFormat = new SimpleDateFormat("dd/MM/yyyy", Locale.getDefault());
         timeFormat = new SimpleDateFormat("hh:mm a", Locale.getDefault());
 
+        db = FirebaseFirestore.getInstance();
+
         durationfrom.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -73,6 +77,9 @@ public class SaveActivity extends AppCompatActivity {
         });
 
         final int spaceIndex = getIntent().getIntExtra("spaceIndex", -1);
+
+        // Mark space as "booking in progress"
+        markSpaceAsBookingInProgress(spaceIndex);
 
         save.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -118,6 +125,24 @@ public class SaveActivity extends AppCompatActivity {
         });
     }
 
+    private void markSpaceAsBookingInProgress(int spaceIndex) {
+        Map<String, Object> spaceStatus = new HashMap<>();
+        spaceStatus.put("bookingInProgress", true);
+        spaceStatus.put("booked", false);
+
+        db.collection("parkingSpaces").document(String.valueOf(spaceIndex))
+                .set(spaceStatus)
+                .addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        if (!task.isSuccessful()) {
+                            Toast.makeText(SaveActivity.this, "Failed to mark space as booking in progress", Toast.LENGTH_SHORT).show();
+                            finish();
+                        }
+                    }
+                });
+    }
+
     private void saveDetailsToFirestore(String nameValue, String emailValue, String phoneValue, String plateValue,
                                         String durationFromValue, String durationToValue, String slotNoValue, int spaceIndex) {
         Map<String, String> v = new HashMap<>();
@@ -128,13 +153,25 @@ public class SaveActivity extends AppCompatActivity {
         v.put("durationfrom", durationFromValue);
         v.put("durationto", durationToValue);
         v.put("slotno", slotNoValue);
+
         FirebaseFirestore.getInstance().collection("vendor").add(v).addOnCompleteListener(new OnCompleteListener<DocumentReference>() {
             @Override
             public void onComplete(@NonNull Task<DocumentReference> task) {
                 if (task.isSuccessful()) {
+                    // Mark space as booked
+                    markSpaceAsBooked(spaceIndex);
                     Toast.makeText(getApplicationContext(), "Details saved", Toast.LENGTH_SHORT).show();
+
                     Intent resultIntent = new Intent();
                     resultIntent.putExtra("spaceIndex", spaceIndex);
+                    resultIntent.putExtra("name", nameValue);
+                    resultIntent.putExtra("email", emailValue);
+                    resultIntent.putExtra("phone", phoneValue);
+                    resultIntent.putExtra("plate", plateValue);
+                    resultIntent.putExtra("durationFrom", durationFromValue);
+                    resultIntent.putExtra("durationTo", durationToValue);
+                    resultIntent.putExtra("slotNo", slotNoValue);
+
                     setResult(RESULT_OK, resultIntent);
                     finish();
                 } else {
@@ -142,6 +179,24 @@ public class SaveActivity extends AppCompatActivity {
                 }
             }
         });
+    }
+
+
+    private void markSpaceAsBooked(int spaceIndex) {
+        Map<String, Object> spaceStatus = new HashMap<>();
+        spaceStatus.put("bookingInProgress", false);
+        spaceStatus.put("booked", true);
+
+        db.collection("parkingSpaces").document(String.valueOf(spaceIndex))
+                .update(spaceStatus)
+                .addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        if (!task.isSuccessful()) {
+                            Toast.makeText(SaveActivity.this, "Failed to mark space as booked", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
     }
 
     private void showDateTimePicker(final EditText editText) {
