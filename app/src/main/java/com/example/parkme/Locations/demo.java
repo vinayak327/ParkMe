@@ -177,8 +177,7 @@ public class demo extends AppCompatActivity {
     }
 
 
-    // Function to set click listener for cancel buttons
-    // Function to set click listener for cancel buttons
+
     private void setCancelButtonClickListener(Button cancelButton, final int spaceIndex) {
         cancelButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -244,7 +243,7 @@ public class demo extends AppCompatActivity {
 
                     userDetailsMap.put(spaceIndex, userDetails);
 
-                    // Update UI is already handled by real-time listener
+
                 }
             }
         }

@@ -35,7 +35,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="30dp"
-                android:text="FIll to Book Your Space!!"
+                android:paddingBottom="10dp"
+                android:text="Fill to Book Your Space!!"
                 android:textAlignment="center"
                 android:textAppearance="@style/TextAppearance.AppCompat.Headline"/>
 
