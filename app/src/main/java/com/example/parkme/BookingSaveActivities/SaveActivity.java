@@ -15,7 +15,6 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.parkme.R;
-import com.example.parkme.razorpay;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.DocumentReference;
@@ -35,9 +34,7 @@ public class SaveActivity extends AppCompatActivity {
     private EditText durationfrom;
     private EditText durationto;
     private EditText slotno;
-
     private Button save;
-    private Button payment;
 
     private Calendar calendar;
     private SimpleDateFormat dateFormat;
@@ -56,7 +53,6 @@ public class SaveActivity extends AppCompatActivity {
         durationto = findViewById(R.id.editTextDurationTo);
         slotno = findViewById(R.id.editTextSlotNo);
         save = findViewById(R.id.buttonSave);
-        payment = findViewById(R.id.buttonMakePayment);
 
         calendar = Calendar.getInstance();
         dateFormat = new SimpleDateFormat("dd/MM/yyyy", Locale.getDefault());
@@ -76,7 +72,7 @@ public class SaveActivity extends AppCompatActivity {
             }
         });
 
-        payment.setEnabled(false);
+        final int spaceIndex = getIntent().getIntExtra("spaceIndex", -1);
 
         save.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -113,43 +109,36 @@ public class SaveActivity extends AppCompatActivity {
                     return;
                 }
 
+                // Send email functionality
+                sendEmail(nameValue, emailValue, phoneValue, plateValue, durationFromValue, durationToValue, slotNoValue);
 
-                Map<String, String> v = new HashMap<>();
-                v.put("name", nameValue);
-                v.put("email", emailValue);
-                v.put("phone", phoneValue);
-                v.put("plate", plateValue);
-                v.put("durationfrom", durationFromValue);
-                v.put("durationto", durationToValue);
-                v.put("slotno", slotNoValue);
-                FirebaseFirestore.getInstance().collection("vendor").add(v).addOnCompleteListener(new OnCompleteListener<DocumentReference>() {
-                    @Override
-                    public void onComplete(@NonNull Task<DocumentReference> task) {
-                        if (task.isSuccessful()) {
-                            Toast.makeText(getApplicationContext(), "Details saved. Now make payment", Toast.LENGTH_SHORT).show();
-                            payment.setEnabled(true);
-                        } else {
-                            Toast.makeText(getApplicationContext(), "Failed to save details. Please try again.", Toast.LENGTH_SHORT).show();
-                        }
-                    }
-                });
+                // Save details to Firestore
+                saveDetailsToFirestore(nameValue, emailValue, phoneValue, plateValue, durationFromValue, durationToValue, slotNoValue, spaceIndex);
             }
         });
+    }
 
-        payment.setOnClickListener(new View.OnClickListener() {
+    private void saveDetailsToFirestore(String nameValue, String emailValue, String phoneValue, String plateValue,
+                                        String durationFromValue, String durationToValue, String slotNoValue, int spaceIndex) {
+        Map<String, String> v = new HashMap<>();
+        v.put("name", nameValue);
+        v.put("email", emailValue);
+        v.put("phone", phoneValue);
+        v.put("plate", plateValue);
+        v.put("durationfrom", durationFromValue);
+        v.put("durationto", durationToValue);
+        v.put("slotno", slotNoValue);
+        FirebaseFirestore.getInstance().collection("vendor").add(v).addOnCompleteListener(new OnCompleteListener<DocumentReference>() {
             @Override
-            public void onClick(View v) {
-                if (!name.getText().toString().isEmpty() &&
-                        !email.getText().toString().isEmpty() &&
-                        !phone.getText().toString().isEmpty() &&
-                        !plate.getText().toString().isEmpty() &&
-                        !durationfrom.getText().toString().isEmpty() &&
-                        !durationto.getText().toString().isEmpty() &&
-                        !slotno.getText().toString().isEmpty()) {
-                    Intent intent = new Intent(SaveActivity.this, razorpay.class);
-                    startActivity(intent);
+            public void onComplete(@NonNull Task<DocumentReference> task) {
+                if (task.isSuccessful()) {
+                    Toast.makeText(getApplicationContext(), "Details saved", Toast.LENGTH_SHORT).show();
+                    Intent resultIntent = new Intent();
+                    resultIntent.putExtra("spaceIndex", spaceIndex);
+                    setResult(RESULT_OK, resultIntent);
+                    finish();
                 } else {
-                    Toast.makeText(getApplicationContext(), "Fill all details first and click on Save", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "Failed to save details. Please try again.", Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -175,5 +164,31 @@ public class SaveActivity extends AppCompatActivity {
         }, currentDate.get(Calendar.YEAR), currentDate.get(Calendar.MONTH), currentDate.get(Calendar.DATE));
         datePickerDialog.getDatePicker().setMinDate(System.currentTimeMillis() - 1000);
         datePickerDialog.show();
+    }
+
+    private void sendEmail(String nameValue, String emailValue, String phoneValue, String plateValue,
+                           String durationFromValue, String durationToValue, String slotNoValue) {
+        String subject = "Parking Booking Details";
+        String message = "Hi " + nameValue + ",\n\n" +
+                "Your parking booking details are as follows:\n\n" +
+                "Email: " + emailValue + "\n" +
+                "Phone: " + phoneValue + "\n" +
+                "Plate Number: " + plateValue + "\n" +
+                "Duration From: " + durationFromValue + "\n" +
+                "Duration To: " + durationToValue + "\n" +
+                "Slot Number: " + slotNoValue + "\n\n" +
+                "Thank you for booking with us.";
+
+        Intent intent = new Intent(Intent.ACTION_SEND);
+        intent.setType("message/rfc822");
+        intent.putExtra(Intent.EXTRA_EMAIL, new String[]{emailValue});
+        intent.putExtra(Intent.EXTRA_SUBJECT, subject);
+        intent.putExtra(Intent.EXTRA_TEXT, message);
+
+        try {
+            startActivity(Intent.createChooser(intent, "Send Email"));
+        } catch (android.content.ActivityNotFoundException ex) {
+            Toast.makeText(this, "There are no email clients installed.", Toast.LENGTH_SHORT).show();
+        }
     }
 }

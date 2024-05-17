@@ -35,7 +35,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="30dp"
-                android:text="BOOK YOUR SLOT!!"
+                android:text="FIll to Book Your Space!!"
                 android:textAlignment="center"
                 android:textAppearance="@style/TextAppearance.AppCompat.Headline"/>
 
@@ -44,7 +44,7 @@
                 android:id="@+id/editTextName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Name"
+                android:hint="Enter your Name"
                 android:layout_below="@id/textView_register_head" />
 
             <!-- Email -->
@@ -101,7 +101,7 @@
                 android:id="@+id/editTextSlotNo"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Slot Number"
+                android:hint="Enter Your Slot Number"
                 android:layout_below="@id/editTextDurationTo"
                 android:layout_marginTop="10dp" />
 
@@ -110,20 +110,13 @@
                 android:id="@+id/buttonSave"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Save"
                 android:layout_below="@id/editTextSlotNo"
-                android:layout_marginTop="20dp" />
+                android:layout_marginLeft="120dp"
+                android:layout_marginTop="17dp"
+                android:text="Book" />
 
             <!-- Make Payment Button -->
-            <Button
-                android:id="@+id/buttonMakePayment"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Make Payment"
-                android:layout_toEndOf="@id/buttonSave"
-                android:layout_below="@id/editTextSlotNo"
-                android:layout_marginTop="20dp"
-                android:layout_marginStart="20dp" />
+
 
         </RelativeLayout>
 

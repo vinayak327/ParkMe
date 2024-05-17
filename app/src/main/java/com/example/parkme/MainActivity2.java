@@ -19,7 +19,6 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
-import com.example.parkme.BookingSaveActivities.ParkingAvailabilityActivity;
 import com.example.parkme.LoginRegisterActivities.LoginActivity;
 import com.example.parkme.OtherActivities.AboutActivity;
 import com.example.parkme.OtherActivities.RateActivity;
@@ -192,7 +191,7 @@ public class MainActivity2 extends AppCompatActivity implements OnMapReadyCallba
         myMap.setOnInfoWindowClickListener(new GoogleMap.OnInfoWindowClickListener() {
             @Override
             public void onInfoWindowClick(Marker marker) {
-                Intent intent = new Intent(MainActivity2.this, ParkingAvailabilityActivity.class);
+                Intent intent = new Intent(MainActivity2.this, demo.class);
                 startActivity(intent);
             }
         });

@@ -23,23 +23,21 @@
         android:theme="@style/Theme.ParkMe"
         tools:targetApi="31">
         <activity
+            android:name=".demo"
+            android:exported="false" />
+        <activity
             android:name=".razorpay"
             android:exported="false" />
-
         <activity
             android:name=".BookingSaveActivities.SaveActivity"
             android:exported="false" />
         <activity
             android:name=".OtherActivities.AboutActivity"
             android:exported="false" />
-
         <activity
             android:name=".OtherActivities.RateActivity"
             android:exported="false" />
 
-        <activity
-            android:name=".BookingSaveActivities.ParkingAvailabilityActivity"
-            android:exported="false" />
         <activity
             android:name=".LoginRegisterActivities.ChangePasswordActivity"
             android:exported="false" />
