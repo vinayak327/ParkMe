@@ -19,6 +19,7 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
+import com.example.parkme.Locations.demo;
 import com.example.parkme.LoginRegisterActivities.LoginActivity;
 import com.example.parkme.OtherActivities.AboutActivity;
 import com.example.parkme.OtherActivities.RateActivity;

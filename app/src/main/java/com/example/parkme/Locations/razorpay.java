@@ -1,4 +1,4 @@
-package com.example.parkme;
+package com.example.parkme.Locations;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
@@ -12,6 +12,7 @@ import android.widget.Toast;
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.parkme.R;
 import com.razorpay.Checkout;
 import com.razorpay.PaymentResultListener;
 

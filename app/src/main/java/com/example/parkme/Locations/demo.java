@@ -1,4 +1,4 @@
-package com.example.parkme;
+package com.example.parkme.Locations;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,6 +11,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.parkme.BookingSaveActivities.SaveActivity;
+import com.example.parkme.R;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
