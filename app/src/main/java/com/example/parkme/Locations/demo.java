@@ -119,8 +119,8 @@ public class demo extends AppCompatActivity {
                     intent.putExtra("email", userDetails.get("email"));
                     intent.putExtra("phone", userDetails.get("phone"));
                     intent.putExtra("plate", userDetails.get("plate"));
-                    intent.putExtra("durationFrom", userDetails.get("durationFrom"));
-                    intent.putExtra("durationTo", userDetails.get("durationTo"));
+                    intent.putExtra("durationfrom", userDetails.get("durationFrom"));
+                    intent.putExtra("durationto", userDetails.get("durationTo"));
                     intent.putExtra("slotNo", userDetails.get("slotNo"));
                 }
                 startActivity(intent);
@@ -142,6 +142,8 @@ public class demo extends AppCompatActivity {
                         if (snapshot != null && snapshot.exists()) {
                             Boolean bookingInProgress = snapshot.getBoolean("bookingInProgress");
                             Boolean booked = snapshot.getBoolean("booked");
+
+
 
                             if (bookingInProgress != null && bookingInProgress) {
                                 parkingSpaceTexts[index].setText("Booking in progress");
@@ -176,8 +178,6 @@ public class demo extends AppCompatActivity {
         }
     }
 
-
-
     private void setCancelButtonClickListener(Button cancelButton, final int spaceIndex) {
         cancelButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -196,8 +196,6 @@ public class demo extends AppCompatActivity {
             }
         });
     }
-
-
 
     private void setButtonClickListener(int bookButtonId, final int spaceIndex) {
         Button bookButton = findViewById(bookButtonId);
@@ -242,8 +240,6 @@ public class demo extends AppCompatActivity {
                     userDetails.put("slotNo", data.getStringExtra("slotNo"));
 
                     userDetailsMap.put(spaceIndex, userDetails);
-
-
                 }
             }
         }

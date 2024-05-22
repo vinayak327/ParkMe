@@ -154,7 +154,7 @@ public class SaveActivity extends AppCompatActivity {
         v.put("durationto", durationToValue);
         v.put("slotno", slotNoValue);
 
-        FirebaseFirestore.getInstance().collection("vendor").add(v).addOnCompleteListener(new OnCompleteListener<DocumentReference>() {
+        FirebaseFirestore.getInstance().collection("parkingspaces").add(v).addOnCompleteListener(new OnCompleteListener<DocumentReference>() {
             @Override
             public void onComplete(@NonNull Task<DocumentReference> task) {
                 if (task.isSuccessful()) {
