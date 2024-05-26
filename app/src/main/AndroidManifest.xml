@@ -34,7 +34,7 @@
             android:name=".Locations.demo"
             android:exported="false" />
         <activity
-            android:name=".Locations.razorpay"
+            android:name=".razorpay"
             android:exported="false" />
         <activity
             android:name=".BookingSaveActivities.SaveActivity"

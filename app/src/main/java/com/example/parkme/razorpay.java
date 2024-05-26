@@ -1,4 +1,4 @@
-package com.example.parkme.Locations;
+package com.example.parkme;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
@@ -12,7 +12,6 @@ import android.widget.Toast;
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.parkme.R;
 import com.razorpay.Checkout;
 import com.razorpay.PaymentResultListener;
 
@@ -53,7 +52,7 @@ public class razorpay extends AppCompatActivity implements PaymentResultListener
         pay_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                PaymentNow("100");
+                PaymentNow("50");
             }
         });
     }
