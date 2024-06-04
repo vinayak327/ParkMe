@@ -48,7 +48,6 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Objects;
 
-//hiiii
 public class MainActivity2 extends AppCompatActivity implements OnMapReadyCallback {
 
     private GoogleMap myMap;
@@ -68,12 +67,28 @@ public class MainActivity2 extends AppCompatActivity implements OnMapReadyCallba
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 int id = item.getItemId();
-                if (id == R.id.nav_rating) {
-                    startActivity(new Intent(MainActivity2.this, RateActivity.class));
+                if (id == R.id.nav_profile) {
+                    startActivity(new Intent(MainActivity2.this, profileactivity.class));
+                    return true;
+
+                } else if (id == R.id.nav_report) {
+                    startActivity(new Intent(MainActivity2.this, reportactivity.class));
                     return true;
 
                 } else if (id == R.id.nav_about) {
                     startActivity(new Intent(MainActivity2.this, AboutActivity.class));
+                    return true;
+
+                } else if (id == R.id.nav_updates) {
+                    startActivity(new Intent(MainActivity2.this, updatesactivity.class));
+                    return true;
+
+                } else if (id == R.id.nav_rate) {
+                    startActivity(new Intent(MainActivity2.this, RateActivity.class));
+                    return true;
+
+                } else if (id == R.id.nav_contact_us) {
+                    startActivity(new Intent(MainActivity2.this, Contactus.class));
                     return true;
 
                 } else if (id == R.id.nav_logout) {

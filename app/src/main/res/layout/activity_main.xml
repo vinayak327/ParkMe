@@ -29,7 +29,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/imageView_logo"
             android:layout_marginTop="30dp"
-            android:text="Welcome to your Parking space"
+            android:text="Please Login Or Register Here"
             android:textAlignment="center"
             android:textAppearance="@style/TextAppearance.AppCompat.Headline"
             android:textSize="25dp"
