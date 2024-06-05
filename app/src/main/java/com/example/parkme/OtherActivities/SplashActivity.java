@@ -9,7 +9,7 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.parkme.MainActivity2;
+import com.example.parkme.MainActivity;
 import com.example.parkme.R;
 
 public class SplashActivity extends AppCompatActivity {
@@ -36,7 +36,7 @@ public class SplashActivity extends AppCompatActivity {
             public void run() {
                 // This method will be executed once the timer is over
                 // Start your app's main activity
-                Intent i = new Intent(SplashActivity.this, MainActivity2.class);
+                Intent i = new Intent(SplashActivity.this, MainActivity.class);
                 startActivity(i);
 
                 // Close this activity

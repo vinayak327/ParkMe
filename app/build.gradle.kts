@@ -36,9 +36,9 @@ android {
 
 dependencies {
 
-    implementation("androidx.appcompat:appcompat:1.6.1")
-    implementation ("com.google.android.gms:play-services-wallet:19.3.0")
-    implementation(platform("com.google.firebase:firebase-bom:33.0.0"))
+    implementation("androidx.appcompat:appcompat:1.7.0")
+    implementation ("com.google.android.gms:play-services-wallet:19.4.0")
+    implementation(platform("com.google.firebase:firebase-bom:33.1.0"))
     implementation("com.google.firebase:firebase-firestore:25.0.0")
     implementation("com.google.firebase:firebase-analytics")
     implementation("com.google.android.material:material:1.12.0")
@@ -48,8 +48,8 @@ dependencies {
     implementation("com.google.firebase:firebase-auth:23.0.0")
     implementation("com.google.firebase:firebase-database:21.0.0")
     implementation("com.google.android.gms:play-services-maps:18.2.0")
-    implementation("com.google.android.gms:play-services-location:21.2.0")
-    implementation("com.google.android.libraries.places:places:3.4.0")
+    implementation("com.google.android.gms:play-services-location:21.3.0")
+    implementation("com.google.android.libraries.places:places:3.5.0")
     implementation("com.android.car.ui:car-ui-lib:2.6.0")
     implementation("androidx.navigation:navigation-fragment:2.7.7")
     implementation("androidx.navigation:navigation-ui:2.7.7")
@@ -59,8 +59,10 @@ dependencies {
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
     implementation ("com.razorpay:checkout:1.6.38")
     implementation ("androidx.constraintlayout:constraintlayout:2.1.4")
-    implementation ("androidx.appcompat:appcompat:1.6.1")
+    implementation ("androidx.appcompat:appcompat:1.7.0")
     implementation ("com.google.android.material:material:1.12.0")
+    implementation ("com.github.barteksc:android-pdf-viewer:3.2.0-beta.1")
+
 
 
 
