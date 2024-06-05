@@ -78,7 +78,7 @@ public class MainActivity2 extends AppCompatActivity implements OnMapReadyCallba
                     return true;
 
                 } else if (id == R.id.nav_contact_us) {
-                    startActivity(new Intent(MainActivity2.this, Contactus.class));
+                    startActivity(new Intent(MainActivity2.this, contactusActivity.class));
                     return true;
 
                 } else if (id == R.id.nav_logout) {

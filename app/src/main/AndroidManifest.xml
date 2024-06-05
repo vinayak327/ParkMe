@@ -27,17 +27,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ParkMe"
         tools:targetApi="31">
+
         <activity
-            android:name=".updatesactivity"
-            android:exported="false" />
-        <activity
-            android:name=".reportactivity"
-            android:exported="false" />
-        <activity
-            android:name=".profileactivity"
-            android:exported="false" />
-        <activity
-            android:name=".Contactus"
+            android:name=".contactusActivity"
             android:exported="false" />
         <activity
             android:name=".BluetoothActivity"

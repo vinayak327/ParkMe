@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:background="@drawable/book"
     android:layout_height="match_parent">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -10,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/book"
-        tools:context=".contactusactivity">
+        tools:context=".contactusActivity">
 
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
@@ -23,7 +24,73 @@
             app:titleTextColor="#FFFFFF"
             app:layout_constraintTop_toTopOf="parent" />
 
+        <!-- Developer Name -->
+        <TextView
+            android:id="@+id/developer_name1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="vinayak choudhary"
+            android:textColor="@android:color/black"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:paddingTop="50dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/toolbar" />
 
+        <!-- Email -->
+        <TextView
+            android:id="@+id/email1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Email: choudharyvinayak325@gmail.com"
+            android:textColor="@android:color/black"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="@id/developer_name1"
+            app:layout_constraintTop_toBottomOf="@id/developer_name1" />
+
+        <!-- Mobile No -->
+        <TextView
+            android:id="@+id/mobile1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Mobile: +91 9309749862"
+            android:textColor="@android:color/black"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="@id/email1"
+            app:layout_constraintTop_toBottomOf="@id/email1" />
+
+        <TextView
+            android:id="@+id/developer_name2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Eshwari Kulkarni"
+            android:textColor="@android:color/black"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:paddingTop="50dp"
+            app:layout_constraintStart_toStartOf="@id/mobile1"
+            app:layout_constraintTop_toBottomOf="@id/mobile1"/>
+
+        <TextView
+            android:id="@+id/email2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Email: s20_kulkarni_eshwari@mgmcen.ac.in"
+            android:textColor="@android:color/black"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="@id/developer_name2"
+            app:layout_constraintTop_toBottomOf="@id/developer_name2" />
+
+        <!-- Mobile No -->
+        <TextView
+            android:id="@+id/mobile2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Mobile: +91 9112255896"
+            android:textColor="@android:color/black"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="@id/email2"
+            app:layout_constraintTop_toBottomOf="@id/email2" />
 
 
 
