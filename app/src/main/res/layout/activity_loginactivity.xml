@@ -16,6 +16,7 @@
         android:elevation="4dp"
         android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
         app:title="PARKME"
+
         app:titleTextColor="#FFFFFF"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -25,10 +26,11 @@
         android:id="@+id/textview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:fontFamily="@font/aclonica"
         android:text="LOG IN"
-        android:textStyle="bold"
         android:textColor="#000"
         android:textSize="35dp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -39,11 +41,12 @@
         android:id="@+id/textview2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="HERE"
-        android:textStyle="bold"
         android:layout_marginTop="1dp"
+        android:fontFamily="@font/aclonica"
+        android:text="HERE"
         android:textColor="#000"
         android:textSize="25dp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textview" />

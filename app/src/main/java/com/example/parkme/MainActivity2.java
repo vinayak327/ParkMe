@@ -319,8 +319,7 @@ public class MainActivity2 extends AppCompatActivity implements OnMapReadyCallba
     }
 
     private List<LatLng> getParkingLocations() {
-        // This method should fetch the list of parking locations from your data source
-        // For simplicity, let's assume there's a hardcoded list of parking locations
+
         List<LatLng> parkingLocations = new ArrayList<>();
         parkingLocations.add(new LatLng(19.1348871, 77.3047966));
         parkingLocations.add(new LatLng(19.1291753, 77.3086308));
